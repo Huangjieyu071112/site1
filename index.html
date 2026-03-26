@@ -1,0 +1,35 @@
+<div class="cube-wrapper">
+  <!-- 6个面分别应用不同的渐变和变换 -->
+  <div class="face front"></div>
+  <div class="face back"></div>
+  <div class="face right"></div>
+  <div class="face left"></div>
+  <div class="face top"></div>
+  <div class="face bottom"></div>
+</div>
+
+<style>
+.cube-wrapper {
+  /* 关键：容器使用skew制造整体3D倾斜感 */
+  transform: skewX(15deg) skewY(5deg); 
+  transform-style: preserve-3d; /* 开启3D空间 */
+}
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.85;
+}
+/* 前面：渐变 + 位移 */
+.front { background: linear-gradient(45deg, #ff9a9e, #fad0c4); transform: translateZ(100px); }
+/* 后面：渐变 + 反向位移 + 旋转 */
+.back { background: linear-gradient(45deg, #a18cd1, #fbc2eb); transform: translateZ(-100px) rotateY(180deg); }
+/* 右面：渐变 + X轴位移 + Y轴旋转 */
+.right { background: linear-gradient(45deg, #84fab0, #8fd3f4); transform: translateX(100px) rotateY(90deg); }
+/* 左面：渐变 + 负X轴位移 + 负Y轴旋转 */
+.left { background: linear-gradient(45deg, #fa709a, #fee140); transform: translateX(-100px) rotateY(-90deg); }
+/* 上面：渐变 + 负Y轴位移 + X轴旋转 */
+.top { background: linear-gradient(45deg, #667eea, #764ba2); transform: translateY(-100px) rotateX(90deg); }
+/* 下面：渐变 + Y轴位移 + 负X轴旋转 */
+.bottom { background: linear-gradient(45deg, #f093fb, #f5576c); transform: translateY(100px) rotateX(-90deg); }
+</style>
